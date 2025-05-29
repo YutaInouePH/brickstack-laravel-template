@@ -10,4 +10,13 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    build: {
+        rollupOptions: {
+            output: {
+                globals: {
+                    jquery: 'window.jQuery',
+                }
+            }
+        }
+    },
 });
