@@ -30,4 +30,8 @@ $(function(){
     // modal();
 });
 
-AOS.init()
+AOS.init();
+
+import.meta.glob([
+    '../images/**',
+]);
