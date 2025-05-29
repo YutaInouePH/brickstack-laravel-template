@@ -16,16 +16,19 @@ Laravelのテンプレートです。
 
 ### Dockerの場合:
 
-1. リポジトリをクローンします。
+1. リポジトリをクローンし、自分のレポジトリに置き換えます。※ 自分のレポジトリ空の状態で作成してください。
 
 ```bash
 git clone https://github.com/YutaInoue/brickstack-laravel-template.git
+cd brickstack-laravel-template
+git remote set-url origin {自分のリポジトリURL}
+git push -u origin main
 ```
 
 2. 環境設定ファイルをコピーします。
 
 ```bash
-cd brickstack-laravel-template/environments/local
+cd environments/local
 cp example/.env .
 cp example/my-php.ini .
 ```
@@ -84,5 +87,27 @@ npm install
 Coming soon...
 
 ### Usage
+
+#### ページ作成
+
+Laravel Folio のパッケージでルーティングを気にせず、ページ作成が行えます。
+
+`resources/views/pages` ディレクトリに `.blade.php` ファイルを作成してください。作成すると自動的にURLも生成されます。
+
+例)
+
+`resources/views/pages/about.blade.php` を作成すると、`http://localhost:8001/about` でアクセス可能になります。
+
+#### レイアウトについて
+
+コンポーネントベースとテンプレートベースの2種類の構築方法があります。
+
+どちらも準備しており、同じページを作成していますので `resources/views` ディレクトリを確認してください。
+
+#### CSSについて
+
+tailwindcss を使用していますので、cssを書く必要がないが、クラス名がとても長くなってしまいます。
+
+#### JavaScriptについて
 
 Coming soon...
