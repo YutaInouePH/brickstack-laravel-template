@@ -1,0 +1,160 @@
+/*====================================================================
+siteHeader
+====================================================================*/
+.header {
+
+  height: $headerHeightPC;
+  right: 0;
+  position: fixed;
+  top: 0;
+  width: auto;
+  z-index: 100;
+
+  .is_login_user & {
+    top: $wpAdminBarPC;
+  }
+  // headerの上部固定の時に、ページごとにリピートされないように
+  @include u-print {
+    position: absolute;
+  }
+}
+
+.hamburger-btn {
+  background: $brown;
+  width: 115px;
+  height: 85px;
+  position: relative;
+  display: grid;
+  place-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    span {
+      width: 50px;
+      height: 1px;
+      background: $white;
+      position: relative;
+       transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      &.top {
+        top: -10px;
+      }
+
+      &.bottom {
+        width: 35px;
+        top: 10px;
+      }
+  }
+}
+
+  .menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: #fff;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 998;
+            overflow-y: auto;
+            opacity: 0;
+            transform: translateX(20px);
+                display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+
+    &-header {
+      margin-bottom: 50px;
+    }
+
+            &-list {
+              // list-style: none;
+              width: 60%;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+               @include u-mqMax(900px) {
+                width: 80%;
+              }
+              @include u-mqMax {
+                width: 100%;
+              }
+            }
+
+        &-item {
+            border-bottom: 1px solid $brown;
+            // width: 45%;
+            // @include u-mqMax {
+              width: 100%;
+            // }
+        }
+
+       &-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            @include u-articleText($fzPC: 1.8rem,
+            $fzSP: 1.5rem,
+            $ff: $Zen,
+            $lh: 1.5, $lhSP:1.33,
+            $lts: 0.05em, $ta: center, $color:$brown);
+            transition: background-color 0.2s ease;
+        }
+
+        &-arrow {
+          width: 10px;
+          height: 10px;
+          border-top: 1px solid $brown;
+          border-right: 1px solid $brown;
+          rotate: 45deg;
+
+        }
+
+        &-footer {
+          margin-top: 50px;
+          display: flex;
+          justify-content: center;
+          gap: 50px;
+          &__link {
+            @include u-articleText($fzPC: 1.4rem,
+            $fzSP: 1.4rem,
+            $ff: $Zen,
+            $lh: 1.5, $lhSP:1.33,
+            $lts: 0.05em, $ta: center, $color:$brown);
+            }
+        }
+        }
+
+
+
+
+ /* ハンバーガーボタンのアクティブ状態 */
+        .hamburger-btn.is-active {
+          z-index: 999;
+          background: transparent;
+          span {
+            background: $brown;
+            &.top {
+              top: 0;
+              transform: rotate(45deg);
+            }
+            &.middle {
+
+              transform: rotate(-45deg);
+            }
+            &.bottom {
+             display: none;
+            }
+          }
+
+        }
+
+
+        .menu.is-active {
+            right: 0;
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        }

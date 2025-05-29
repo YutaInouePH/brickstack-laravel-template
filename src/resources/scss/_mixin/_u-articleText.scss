@@ -1,0 +1,14 @@
+@mixin u-articleText($fzPC: 1.5rem, $fzSP: 1.4rem, $ff: $NotosansJP, $lh: 1.5, $lhSP:1.33, $lts: 0.05em, $ta: left, $color:$brown) {
+    font-size: $fzPC;
+    line-height: $lh;
+    letter-spacing: $lts;
+    text-align: $ta;
+    color: $color;
+    font-family: $ff;
+
+    //SP
+    @include u-mqMax {
+        font-size: $fzSP;
+        line-height: $lhSP;
+    }
+}

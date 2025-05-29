@@ -1,0 +1,33 @@
+.contactPage__kvSec {
+  height: 360px;
+  width: 100%;
+  background: url(../images/contact/contactPage-mv.jpg) center center / cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: grid;
+  place-content: center;
+
+  .kvSec-ttl {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+}
+
+.contactPage-leadArea {
+  padding: 80px 0;
+  width: 100%;
+  background: $white;
+  // @include u-contentCenter;
+}
+
+.contactPage-txt {
+  text-align: center;
+}
+
+
+.form-group-inner {
+  input {
+    width: 45%;
+  }
+}
